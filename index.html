@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optik Raja - Tempat Terbaik untuk Kacamata Berkualitas</title>
+    <style>
+        :root {
+            --white: #FFFFFF;
+            --red: #E63946;
+            --dark-red: #C1121F;
+            --black: #000000;
+            --gray: #333333;
+            --light-gray: #F5F5F5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--black);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            align-items: center;
+            width: 150px;
+            height: auto;
+        }
+
+        .logo-text {
+            margin-left: 0.5rem;
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: var(--red);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--black);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--red);
+        }
+
+        .cart-btn {
+            background-color: var(--red);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            margin-left: 1.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: var(--light-gray);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--red);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--red);
+            color: var(--white);
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: var(--dark-red);
+        }
+
+        /* Products Section */
+        .products {
+            padding: 3rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            color: var(--red);
+        }
+
+        .product-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .category-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .category-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .category-info {
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .category-info h3 {
+            color: var(-black);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Frame Showcase */
+        .frame-showcase {
+            padding: 3rem 0;
+            background-color: var(--light-gray);
+        }
+
+        .frame-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .frame-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+
+        .frame-card:hover {
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .frame-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .frame-details {
+            padding: 1.5rem;
+        }
+
+        .frame-brand {
+            font-size: 1.2rem;
+            color: var(--red);
+            margin-bottom: 0.5rem;
+        }
+
+        .frame-name {
+            font-size: 1rem;
+            color: var(--black);
+            margin-bottom: 0.5rem;
+        }
+
+        .frame-colors {
+            display: flex;
+            margin-bottom: 1rem;
+        }
+
+        .color {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+            border: 1px solid var(--light-gray);
+        }
+
+        .frame-price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--black);
+            margin-bottom: 1rem;
+        }
+
+        .frame-btn {
+            display: block;
+            text-align: center;
+            background-color: var(--red);
+            color: var(--white);
+            padding: 0.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .frame-btn:hover {
+            background-color: var(--dark-red);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            overflow: auto;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .modal-content {
+            background-color: var(--white);
+            margin: 5% auto;
+            padding: 2rem;
+            width: 80%;
+            max-width: 800px;
+            border-radius: 8px;
+            position: relative;
+        }
+        .modal-content {
+            background-color: var(--white);
+            margin: 5% auto;
+            padding: 2rem;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 8px;
+            position: relative;
+        }
+         .modal-content {
+            background-color: var(--white);
+            margin: 5% auto;
+            padding: 2rem;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 8px;
+            position: relative;
+         }   
+         .modal-content {
+            background-color: var(--white);
+            margin: 5% auto;
+            padding: 2rem;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 8px;
+            position: relative;
+         }
+         .modal-content {
+            background-color: var(--white);
+            margin: 5% auto;
+            padding: 2rem;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 8px;
+            position: relative;
+         }
+        .close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            color: var(--black);
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        .modal-body {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .modal-img {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .modal-img img {
+            width: 100%;
+            height: auto;
+            max-height: 400px;
+            object-fit: contain;
+        }
+
+        .modal-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .modal-title {
+            font-size: 1.8rem;
+            color: var(--red);
+            margin-bottom: 1rem;
+        }
+
+        .modal-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: var(--black);
+        }
+
+        .modal-description {
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .modal-specs {
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-specs h4 {
+            margin-bottom: 0.5rem;
+            color: var(--red);
+        }
+
+        .modal-specs ul {
+            list-style-position: inside;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 3rem 0;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--red);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--red);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            width: 15%;
+            height: 15%;
+        }
+
+        .social-icons a {
+          display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            width: 15%;
+            height: 15%;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--gray);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 0.5rem;
+            }
+
+            .modal-body {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <img src="optik raja 4.png" alt="" class="logo-img">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#">Beranda</a></li>
+                    <li><a href="#products">Produk</a></li>
+                    <li><a href="#">Lensa</a></li>
+                    <li><a href="#">Tentang Kami</a></li>
+                    <li><a href="#">Kontak</a></li>
+                    <li><a href="#" class="cart-btn">Keranjang</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Temukan Frame Kacamata Terbaik</h1>
+            <p>Optik Raja menyediakan berbagai pilihan frame kacamata berkualitas dari merek ternama dengan harga terjangkau.</p>
+            <a href="#products" class="btn">Lihat Koleksi</a>
+        </div>
+    </section>
+
+    <!-- Products Categories -->
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="section-title">Kategori Produk</h2>
+            <div class="product-categories">
+                <div class="category-card">
+                    <img src="optik raja 2.jpg" alt="Frame kacamata ARB Esensial dengan desain modern warna merah dan hitam" class="category-img">
+                    <div class="category-info">
+                        <h3>ARB Esensial</h3>
+                        <p>Frame dengan tampilan sporty dengan warna brown solid</p>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <img src="optik raja 3 .jpg" class="category-img">
+                    <div class="category-info">
+                        <h3>Goodys</h3>
+                        <p>Frame stylish warna tortoise</p>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <img src="hummer.JPG" class="category-img">
+                    <div class="category-info">
+                        <h3>Hummer</h3>
+                        <p>Frame modern warna grey transparan</p>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <img src="filla.PNG" alt="Frame kacamata Sunbreak dengan desain sporty warna merah-putih" class="category-img">
+                    <div class="category-info">
+                        <h3>Filla</h3>
+                        <p>Frame sporty warna merah-grey</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Frame Showcase -->
+    <section class="frame-showcase">
+        <div class="container">
+            <h2 class="section-title">Koleksi Frame Terbaru</h2>
+            <div class="frame-grid">
+                <!-- Frame 1 -->
+                <div class="frame-card" onclick="openModal('modal1')">
+                    <img src="arb.jpg" alt="Frame ARB Esensial warna merah dengan detail hitam, bentuk persegi modern" class="frame-img">
+                    <div class="frame-details">
+                        <div class="frame-brand">ARB Esensial</div>
+                        <div class="frame-name">Model Premium Red</div>
+                        <div class="frame-colors">
+                            <div class="color" style="background-color: #E63946;"></div>
+                            <div class="color" style="background-color: #000000;"></div>
+                        </div>
+                        <div class="frame-price">Rp 1.250.000</div>
+                        <a href="#" class="frame-btn">Detail Produk</a>
+                    </div>
+                </div>
+
+                <!-- Frame 2 -->
+                <div class="frame-card" onclick="openModal('modal2')">
+                    <img src="goodys.jpg" alt="Frame Goodys Classic warna hitam dengan aksen putih minimalis" class="frame-img">
+                    <div class="frame-details">
+                        <div class="frame-brand">Goodys</div>
+                        <div class="frame-name">Classic Black/White</div>
+                        <div class="frame-colors">
+                            <div class="color" style="background-color: #000000;"></div>
+                            <div class="color" style="background-color: #FFFFFF;"></div>
+                        </div>
+                        <div class="frame-price">Rp 950.000</div>
+                        <a href="#" class="frame-btn">Detail Produk</a>
+                    </div>
+                </div>
+
+                <!-- Frame 3 -->
+                <div class="frame-card" onclick="openModal('modal3')">
+                    <img src="highlow.jpg" alt="Frame Highglow Platinum warna putih metalik dengan detail hitam" class="frame-img">
+                    <div class="frame-details">
+                        <div class="frame-brand">Highglow</div>
+                        <div class="frame-name">Platinum White Edition</div>
+                        <div class="frame-colors">
+                            <div class="color" style="background-color: #FFFFFF;"></div>
+                            <div class="color" style="background-color: #000000;"></div>
+                        </div>
+                        <div class="frame-price">Rp 1.350.000</div>
+                        <a href="#" class="frame-btn">Detail Produk</a>
+                    </div>
+                </div>
+
+                <!-- Frame 4 -->
+                <div class="frame-card" onclick="openModal('modal4')">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d33a7c1e-fe95-4feb-8c33-176a97bf4399.png" alt="Frame Sunbreak Sport warna merah menyala dengan aksen putih" class="frame-img">
+                    <div class="frame-details">
+                        <div class="frame-brand">Sunbreak</div>
+                        <div class="frame-name">Sport Red Flash</div>
+                        <div class="frame-colors">
+                            <div class="color" style="background-color: #E63946;"></div>
+                            <div class="color" style="background-color: #FFFFFF;"></div>
+                        </div>
+                        <div class="frame-price">Rp 1.100.000</div>
+                        <a href="#" class="frame-btn">Detail Produk</a>
+                    </div>
+                </div>
+
+                <!-- Frame 5 -->
+                <div class="frame-card" onclick="openModal('modal5')">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/7f137a42-f200-4d1b-a3da-dd52669e9a68.png" alt="Frame ARB Esensial Limited Edition warna hitam glossy dengan detail merah" class="frame-img">
+                    <div class="frame-details">
+                        <div class="frame-brand">ARB Esensial</div>
+                        <div class="frame-name">Limited Black Edition</div>
+                        <div class="frame-colors">
+                            <div class="color" style="background-color: #000000;"></div>
+                            <div class="color" style="background-color: #E63946;"></div>
+                        </div>
+                        <div class="frame-price">Rp 1.500.000</div>
+                        <a href="#" class="frame-btn">Detail Produk</a>
+                    </div>
+                </div>
+
+                <!-- Frame 6 -->
+                <div class="frame-card" onclick="openModal('modal6')">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2cd5cdec-5707-49e1-b39d-607ce00140c9.png" alt="Frame Goodys Retro warna hitam dengan temple putih vintage" class="frame-img">
+                    <div class="frame-details">
+                        <div class="frame-brand">Goodys</div>
+                        <div class="frame-name">Retro Black Vintage</div>
+                        <div class="frame-colors">
+                            <div class="color" style="background-color: #000000;"></div>
+                            <div class="color" style="background-color: #FFFFFF;"></div>
+                        </div>
+                        <div class="frame-price">Rp 1.050.000</div>
+                        <a href="#" class="frame-btn">Detail Produk</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modals for Product Details -->
+    <!-- Modal 1 -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal('modal1')">&times;</button>
+            <div class="modal-body">
+                <div class="modal-img">
+                    <img src="frame detail.jpg" alt="Close-up frame ARB Esensial Premium Red dengan detail warna merah dan hitam">
+                </div>
+                <div class="modal-info">
+                    <h3 class="modal-title">ARB Esensial Premium Red</h3>
+                    <div class="modal-price">Rp 1.250.000</div>
+                    <p class="modal-description">
+                        Frame premium dari koleksi ARB Esensial dengan warna merah yang mencolok dan detail hitam yang elegan. Dibuat dari material berkualitas tinggi yang ringan namun kokoh.
+                    </p>
+                    <div class="modal-specs">
+                        <h4>Spesifikasi:</h4>
+                        <ul>
+                            <li>Material: TR-90 Ringan</li>
+                            <li>Ukuran Frame: 52-18-145</li>
+                            <li>Warna: Merah dengan detail hitam</li>
+                            <li>Inklusi: Tempat kacamata premium</li>
+                            <li>Garansi: 1 tahun</li>
+                        </ul>
+                    </div>
+                    <div class="modal-actions">
+                        <a href="#" class="btn">Tambahkan ke Keranjang</a>
+                        <a href="#" class="btn" style="background-color: var(--black);">Beli Sekarang</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2 -->
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal('modal2')">&times;</button>
+            <div class="modal-body">
+                <div class="modal-img">
+                    <img src="frame detail.jpg" alt="Close-up frame Goodys Classic Black/White dengan desain minimalis">
+                </div>
+                <div class="modal-info">
+                    <h3 class="modal-title">Goodys Classic Black/White</h3>
+                    <div class="modal-price">Rp 950.000</div>
+                    <p class="modal-description">
+                        Frame klasik dari Goodys dengan kombinasi warna hitam yang timeless dan aksen putih yang minimalis. Cocok untuk penggunaan sehari-hari maupun acara formal.
+                    </p>
+                    <div class="modal-specs">
+                        <h4>Spesifikasi:</h4>
+                        <ul>
+                            <li>Material: Acetate Berkualitas</li>
+                            <li>Ukuran Frame: 50-19-140</li>
+                            <li>Warna: Hitam dengan aksen putih</li>
+                            <li>Inklusi: Kain microfiber</li>
+                            <li>Garansi: 6 bulan</li>
+                        </ul>
+                    </div>
+                    <div class="modal-actions">
+                        <a href="#" class="btn">Tambahkan ke Keranjang</a>
+                        <a href="#" class="btn" style="background-color: var(--black);">Beli Sekarang</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- modal 3 -->
+ <div id="modal3" class="modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal('modal3')">&times;</button>
+            <div class="modal-body">
+                <div class="modal-img">
+                    <img src="frame detail.jpg" alt="Close-up frame ARB Esensial Premium Red dengan detail warna merah dan hitam">
+                </div>
+                <div class="modal-info">
+                    <h3 class="modal-title">ARB Esensial Premium Red</h3>
+                    <div class="modal-price">Rp 1.250.000</div>
+                    <p class="modal-description">
+                        Frame premium dari koleksi ARB Esensial dengan warna merah yang mencolok dan detail hitam yang elegan. Dibuat dari material berkualitas tinggi yang ringan namun kokoh.
+                    </p>
+                    <div class="modal-specs">
+                        <h4>Spesifikasi:</h4>
+                        <ul>
+                            <li>Material: TR-90 Ringan</li>
+                            <li>Ukuran Frame: 52-18-145</li>
+                            <li>Warna: Merah dengan detail hitam</li>
+                            <li>Inklusi: Tempat kacamata premium</li>
+                            <li>Garansi: 1 tahun</li>
+                        </ul>
+                    </div>
+                    <div class="modal-actions">
+                        <a href="#" class="btn">Tambahkan ke Keranjang</a>
+                        <a href="#" class="btn" style="background-color: var(--black);">Beli Sekarang</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- modal 4 -->
+     <div id="modal4" class="modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal('modal4')">&times;</button>
+            <div class="modal-body">
+                <div class="modal-img">
+                    <img src="frame detail.jpg" alt="Close-up frame ARB Esensial Premium Red dengan detail warna merah dan hitam">
+                </div>
+                <div class="modal-info">
+                    <h3 class="modal-title">ARB Esensial Premium Red</h3>
+                    <div class="modal-price">Rp 1.250.000</div>
+                    <p class="modal-description">
+                        Frame premium dari koleksi ARB Esensial dengan warna merah yang mencolok dan detail hitam yang elegan. Dibuat dari material berkualitas tinggi yang ringan namun kokoh.
+                    </p>
+                    <div class="modal-specs">
+                        <h4>Spesifikasi:</h4>
+                        <ul>
+                            <li>Material: TR-90 Ringan</li>
+                            <li>Ukuran Frame: 52-18-145</li>
+                            <li>Warna: Merah dengan detail hitam</li>
+                            <li>Inklusi: Tempat kacamata premium</li>
+                            <li>Garansi: 1 tahun</li>
+                        </ul>
+                    </div>
+                    <div class="modal-actions">
+                        <a href="#" class="btn">Tambahkan ke Keranjang</a>
+                        <a href="#" class="btn" style="background-color: var(--black);">Beli Sekarang</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- modal 5 -->
+     <div id="modal5" class="modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal('modal5')">&times;</button>
+            <div class="modal-body">
+                <div class="modal-img">
+                    <img src="frame detail.jpg" alt="Close-up frame ARB Esensial Premium Red dengan detail warna merah dan hitam">
+                </div>
+                <div class="modal-info">
+                    <h3 class="modal-title">ARB Esensial Premium Red</h3>
+                    <div class="modal-price">Rp 1.250.000</div>
+                    <p class="modal-description">
+                        Frame premium dari koleksi ARB Esensial dengan warna merah yang mencolok dan detail hitam yang elegan. Dibuat dari material berkualitas tinggi yang ringan namun kokoh.
+                    </p>
+                    <div class="modal-specs">
+                        <h4>Spesifikasi:</h4>
+                        <ul>
+                            <li>Material: TR-90 Ringan</li>
+                            <li>Ukuran Frame: 52-18-145</li>
+                            <li>Warna: Merah dengan detail hitam</li>
+                            <li>Inklusi: Tempat kacamata premium</li>
+                            <li>Garansi: 1 tahun</li>
+                        </ul>
+                    </div>
+                    <div class="modal-actions">
+                        <a href="#" class="btn">Tambahkan ke Keranjang</a>
+                        <a href="#" class="btn" style="background-color: var(--black);">Beli Sekarang</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- modal 6 -->
+     <div id="modal6" class="modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal('modal6')">&times;</button>
+            <div class="modal-body">
+                <div class="modal-img">
+                    <img src="frame detail.jpg" alt="Close-up frame ARB Esensial Premium Red dengan detail warna merah dan hitam">
+                </div>
+                <div class="modal-info">
+                    <h3 class="modal-title">ARB Esensial Premium Red</h3>
+                    <div class="modal-price">Rp 1.250.000</div>
+                    <p class="modal-description">
+                        Frame premium dari koleksi ARB Esensial dengan warna merah yang mencolok dan detail hitam yang elegan. Dibuat dari material berkualitas tinggi yang ringan namun kokoh.
+                    </p>
+                    <div class="modal-specs">
+                        <h4>Spesifikasi:</h4>
+                        <ul>
+                            <li>Material: TR-90 Ringan</li>
+                            <li>Ukuran Frame: 52-18-145</li>
+                            <li>Warna: Merah dengan detail hitam</li>
+                            <li>Inklusi: Tempat kacamata premium</li>
+                            <li>Garansi: 1 tahun</li>
+                        </ul>
+                    </div>
+                    <div class="modal-actions">
+                        <a href="#" class="btn">Tambahkan ke Keranjang</a>
+                        <a href="#" class="btn" style="background-color: var(--black);">Beli Sekarang</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h3>Optik Raja</h3>
+                    <p>Pusat kacamata berkualitas dengan harga terjangkau. Menyediakan berbagai frame dan lensa dari merek ternama.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Beranda</a></li>
+                        <li><a href="#products">Produk</a></li>
+                        <li><a href="#">Koleksi</a></li>
+                        <li><a href="#">Promo</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Bantuan</h3>
+                    <ul>
+                        <li><a href="#">Ukuran Frame</a></li>
+                        <li><a href="#">Panduan Lensa</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Pengembalian</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Kontak Kami</h3>
+                    <ul>
+                        <li>Jl. Optik Raya No. 123</li>
+                        <li>Jakarta Selatan</li>
+                        <li>Telp: (021) 555-6789</li>
+                        <li>Email: info@optikraja.com</li>
+                    </ul>
+                    <div class="social-icons">
+                        <a href="#"><img src="ig.png" alt="Ikon Instagram"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2023 Optik Raja. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Modal Functions
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.display = 'block';
+            setTimeout(() => {
+                modal.style.opacity = '1';
+            }, 10);
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.style.opacity = '0';
+            setTimeout(() => {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }, 300);
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                if (event.target === modal) {
+                    modal.style.opacity = '0';
+                    setTimeout(() => {
+                        modal.style.display = 'none';
+                        document.body.style.overflow = 'auto';
+                    }, 300);
+                }
+            });
+        }
+    </script>
+</body>
+</html>
+
